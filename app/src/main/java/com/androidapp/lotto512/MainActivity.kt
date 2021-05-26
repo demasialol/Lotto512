@@ -10,6 +10,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         findViewById<View>(R.id.ConstellationCard).setOnClickListener{
             val intent = Intent(this,ConstellationActivity::class.java)
             startActivity(intent)
@@ -22,7 +23,8 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this,ResultActivity::class.java)
             startActivity(intent)
         }
-
+        /* val cardRandom = findViewByid(
+    */
     }
 
 
