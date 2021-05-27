@@ -3,7 +3,6 @@ package com.androidapp.lotto512
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import androidx.cardview.widget.CardView
 import java.util.*
 import kotlin.collections.ArrayList
@@ -12,17 +11,18 @@ fun getRandomLottoNumber(): Int{
     return Random().nextInt(45)+1
 }
 
-fun getRandomLottoNumbers(): MutableList<Int> {
+fun getRandomLottoNumbers(): MutableList<Int>{
     val lottoNumbers = mutableListOf<Int>()
 
-    while (true) {
+    while (true){
         val number = getRandomLottoNumber()
-        var flag_exist = 0;
+        var flag_exist = 0
 
-        if (lottoNumbers.size < 1) {
+        if (lottoNumbers.size < 1){
             lottoNumbers.add(number)
             continue
-        } else {
+        }
+        else {
             for (j in 0 until lottoNumbers.size) {
                 if (number == lottoNumbers[j]) {
                     flag_exist = 1
@@ -38,45 +38,26 @@ fun getRandomLottoNumbers(): MutableList<Int> {
     return lottoNumbers
 }
 
-/*fun getRandomLottoNumbers(): MutableList<Int>{
-    val lottoNUmbers = mutableListOf<Int>()
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
-    for(i in 1..6){
-        var number = 0
-        do{
-            number = getRandomLottoNumber()
-        }while(lottoNUmbers.contains(number))
-        lottoNumbers.add(number)
-    }
-    return.lottoNumbers
-}*/
+        val card_Constellation = findViewById<CardView>(R.id.ConstellationCard)
+        val card_Name = findViewById<CardView>(R.id.NameCard)
+        val card_Random = findViewById<CardView>(R.id.ResultCard)
 
-
-    class MainActivity : AppCompatActivity() {
-        override fun onCreate(savedInstanceState: Bundle?) {
-            super.onCreate(savedInstanceState)
-            setContentView(R.layout.activity_main)
-
-            findViewById<View>(R.id.ResultCard).setOnClickListener {
-                val intent = Intent(this, ResultActivity::class.java)
-                intent.putIntegerArrayListExtra("result", ArrayList(getRandomLottoNumbers()))
-               /// intent.putIntegerArrayListExtra("result", ArrayList(getSuffledLottoNumbers()))
-                startActivity(intent)
-            }
-            findViewById<View>(R.id.ConstellationCard).setOnClickListener {
-                val intent = Intent(this, ConstellationActivity::class.java)
-                startActivity(intent)
-            }
-            findViewById<View>(R.id.NameCard).setOnClickListener {
-                val intent = Intent(this, NameActivity::class.java)
-                startActivity(intent)
-            }
-
+        card_Random.setOnClickListener {
+            val intent = Intent(this, ResultActivity::class.java)
+            intent.putIntegerArrayListExtra("result", ArrayList(getRandomLottoNumbers()))
+            startActivity(intent)
         }
-        val numbers = { listOf(1,2,3,4)}
-        /*println(numbers)
-        numbers.forEach{numbers -> println(numbers)}
-        numbers.forEach{numbers -> println(number)}
-        numbers.forEach{println(it)}
-        val mutableNumbers = mutableListOf<Int>(5,6,7,8)*/
+
+        card_Constellation.setOnClickListener {
+            startActivity(Intent(this@MainActivity, ConstellationActivity::class.java))
+        }
+        card_Name.setOnClickListener {
+            startActivity(Intent(this@MainActivity, NameActivity::class.java))
+        }
     }
+}
