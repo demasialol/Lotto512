@@ -7,7 +7,7 @@
     tools:context=".ConstellationActivity">
 
     <Button
-        android:id="@+id/btnGoResult"
+        android:id="@+id/btnGoResultConstell"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -18,22 +18,23 @@
         android:text="로또 번호 확인" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageViewContstell"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/btnGoResult"
+        android:layout_above="@id/btnGoResultConstell"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         app:srcCompat="@drawable/constellation" />
 
     <TextView
+        android:id="@+id/txtConstell"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@id/imageView2"
-        android:layout_alignBottom="@id/imageView2"
+        android:layout_alignTop="@id/imageViewContstell"
+        android:layout_alignBottom="@id/imageViewContstell"
         android:layout_marginRight="16dp"
-        android:layout_toRightOf="@id/imageView2"
+        android:layout_toRightOf="@id/imageViewContstell"
         android:autoSizeMaxTextSize="48sp"
         android:autoSizeMinTextSize="18sp"
         android:autoSizeStepGranularity="1sp"
@@ -46,7 +47,7 @@
         android:id="@+id/datePicker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/imageView2"
+        android:layout_above="@id/imageViewContstell"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"

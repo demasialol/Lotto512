@@ -10,7 +10,7 @@ class NameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_name)
 
-        findViewById<Button>(R.id.btnGoName).setOnClickListener{
+        findViewById<Button>(R.id.btnGoResultName).setOnClickListener{
             val intent = Intent(this,ResultActivity::class.java)
             startActivity(intent)
         }
@@ -18,5 +18,7 @@ class NameActivity : AppCompatActivity() {
         btnBack.setOnClickListener {
             finish()
         }
+
+
     }
 }
