@@ -12,31 +12,18 @@ fun getRandomLottoNumber(): Int{
     return Random().nextInt(45)+1
 }
 
-fun getRandomLottoNumbers(): MutableList<Int>{
+
+fun getShuffledLottoNumber(): MutableList<Int>{
     val lottoNumbers = mutableListOf<Int>()
-
-    while (true){
-        val number = getRandomLottoNumber()
-        var flag_exist = 0
-
-        if (lottoNumbers.size < 1){
+        for (i in 1..6){
+            var number = 0
+            do{
+                number = getRandomLottoNumber()
+            }while (lottoNumbers.contains(number))
             lottoNumbers.add(number)
-            continue
         }
-        else {
-            for (j in 0 until lottoNumbers.size) {
-                if (number == lottoNumbers[j]) {
-                    flag_exist = 1
-                    break
-                }
-            }
-            if (flag_exist == 0)
-                lottoNumbers.add(number)
-            if (lottoNumbers.size >= 6)
-                break
-        }
-    }
-    return lottoNumbers
+   return lottoNumbers
+
 }
 
 fun getshuffledLottoNumbers() :MutableList<Int>{
@@ -55,21 +42,29 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val card_Constellation = findViewById<CardView>(R.id.ConstellationCard)
-        val card_Name = findViewById<CardView>(R.id.NameCard)
-        val card_Random = findViewById<CardView>(R.id.ResultCard)
 
-        card_Random.setOnClickListener {
+        val ResultCard = findViewById<CardView>(R.id.ResultCard)
+        ResultCard.setOnClickListener {
             val intent = Intent(this, ResultActivity::class.java)
-            intent.putIntegerArrayListExtra("result", ArrayList(getRandomLottoNumbers()))
+            //intent.putIntegerArrayListExtra("result", ArrayList(getRandomLottoNumbers()))
+            intent.putIntegerArrayListExtra("result", ArrayList(getShuffledLottoNumber()))
+            //result가 getRandomLottoNumbers()를 ResultActivity에서 받아주는 키값
             startActivity(intent)
+
+            val resultIntent = Intent(this, ResultActivity::class.java)
+            ResultCard.setOnClickListener { startActivity(resultIntent) }
         }
 
-        card_Constellation.setOnClickListener {
-            startActivity(Intent(this@MainActivity, ConstellationActivity::class.java))
+        val ConstellationCard = findViewById<CardView>(R.id.ConstellationCard)
+        ConstellationCard.setOnClickListener {
+            val ConstellIntent = Intent(this, ConstellationActivity::class.java)
+            ConstellationCard.setOnClickListener { startActivity(ConstellIntent) }
         }
-        card_Name.setOnClickListener {
-            startActivity(Intent(this@MainActivity, NameActivity::class.java))
+
+        val NameCard = findViewById<CardView>(R.id.NameCard)
+        NameCard.setOnClickListener {
+            val NameIntent = Intent(this, NameActivity::class.java)
+            NameCard.setOnClickListener { startActivity(NameIntent) }
         }
     }
 }

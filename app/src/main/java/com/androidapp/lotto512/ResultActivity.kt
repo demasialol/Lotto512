@@ -18,6 +18,14 @@ class ResultActivity : AppCompatActivity() {
         val strConstellation = intent.getStringExtra("constellation")
        val result_sorted = result?.sorted()
 
+        val lottoBallImageStartId = R.drawable.ball_01
+
+        strConstellation.let{
+            val resultLabel = findViewById<TextView>(R.id.resultLabel)
+            val date = intent.getStringArrayExtra("date")
+            resultLabel.text = "${strConstellation} 의  ${SimpleDateFormat("yyyy년 MM월 dd일")
+                    .format(Date())} 로또번호입니다"
+        }
         val imageView1 =findViewById<ImageView>(R.id.imageView1)
         val imageView2 =findViewById<ImageView>(R.id.imageView2)
         val imageView3 =findViewById<ImageView>(R.id.imageView3)
@@ -25,16 +33,7 @@ class ResultActivity : AppCompatActivity() {
         val imageView5 =findViewById<ImageView>(R.id.imageView5)
         val imageView6 =findViewById<ImageView>(R.id.imageView6)
 
-        strConstellation.let{
-            val resultLabel = findViewById<TextView>(R.id.resultLabel)
-            resultLabel.text = "${strConstellation} 의  ${SimpleDateFormat("yyyy년 MM월 dd일")
-                    .format(Date())} 로또번호입니다"
-        }
 
-
-        val lottoBallImageStartId = R.drawable.ball_01
-        val lottoBallImageId2 = R.drawable.ball_02
-        val lottoBallImageId3 = R.drawable.ball_03
 
         imageView1.setImageResource(lottoBallImageStartId +result_sorted[0] - 1)
         imageView2.setImageResource(lottoBallImageStartId +result_sorted[1] - 1)
