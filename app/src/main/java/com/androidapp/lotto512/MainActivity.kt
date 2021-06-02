@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.cardview.widget.CardView
-import com.example.lotto512.ConstellationActivity
+import com.example.lotto.ConstellationActivity
 import java.util.*
 import kotlin.collections.ArrayList
 

@@ -11,7 +11,7 @@
         android:theme="@style/Theme.Lotto512">
         <activity android:name=".ResultActivity"></activity>
         <activity android:name=".NameActivity" />
-        <activity android:name=".ConstellationActivity" />
+        <activity android:name="com.example.lotto.ConstellationActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
