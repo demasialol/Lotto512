@@ -7,7 +7,6 @@ import android.widget.Button
 import android.widget.CalendarView
 import android.widget.DatePicker
 import android.widget.TextView
-import androidx.cardview.widget.CardView
 import com.androidapp.lotto512.R
 import com.androidapp.lotto512.ResultActivity
 import java.text.SimpleDateFormat
@@ -18,7 +17,6 @@ class ConstellationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_constellation)
-
         val txtConstell = findViewById<TextView>(R.id.txtConstell)
         val datePicker = findViewById<DatePicker>(R.id.datePicker)
         txtConstell.text = makeConstellationString(datePicker.month + 1, datePicker.dayOfMonth)
@@ -57,16 +55,12 @@ class ConstellationActivity : AppCompatActivity() {
         for (number in 1..45){
             list.add(number)
         }
-
-        //   val targetString = SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SS", Locale.KOREA).format(Date()) + str
         val targetString = SimpleDateFormat("yyyy-MM-dd", Locale.KOREA).format(Date()) + str
         val target = "${month + 1}${String.format("%02d",dayOfMonth)}"+ str
         list.shuffle(Random(targetString.hashCode().toLong()))
 
         return list.subList(0, 6)
-
     }
-
     private fun makeConstellationString(month: Int, dayOfMonth: Int): String {
         val target = "${month}${String.format("%02d",dayOfMonth)}".toInt()
 
