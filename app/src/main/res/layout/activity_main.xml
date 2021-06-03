@@ -45,7 +45,8 @@
                     android:layout_marginTop="8dp"
                     android:layout_weight="1"
                     android:gravity="center|right|top"
-                    android:text="랜덤 숫자 생성" />
+                    android:text="@string/result_menu_label"
+                     />
             </LinearLayout>
 
             <ImageView
@@ -90,7 +91,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_weight="1"
                     android:gravity="center|right|top"
-                    android:text="별자리 기반 숫자 생성" />
+                    android:text="@string/small_constell_menu_label" />
             </LinearLayout>
 
             <ImageView

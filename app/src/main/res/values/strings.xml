@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Revalsal Lotto</string>
+    <string name="small_constell_menu_label">Constellation based number generation</string>
+    <string name="result_menu_label">result based number generation</string>
 </resources>
